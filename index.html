@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-cu Sinif Buraxılış Ballarını Hesablamaq</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="number"] {
+            width: 100px;
+            margin: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>9-cu Sinif Buraxılış Ballarını Hesablamaq</h1>
+
+    <div>
+        <h2>Tədris Dili</h2>
+        <label for="dil_qapali">Qapalı Suallar (26 tapşırıq): </label>
+        <input type="number" id="dil_qapali" min="0" max="26"><br>
+        <label for="dil_yazili">Açıq Suallar (4 tapşırıq): </label>
+        <select id="dil_sual1">
+          <option value="0">0</option>
+          <option value="0.333">1/3</option>
+          <option value="0.5">1/2</option>
+          <option value="0.666">2/3</option>
+          <option value="1">1</option>
+          </select>
+          <select id="dil_sual2">
+            <option value="0">0</option>
+            <option value="0.333">1/3</option>
+            <option value="0.5">1/2</option>
+            <option value="0.666">2/3</option>
+            <option value="1">1</option>
+            </select>
+            <select id="dil_sual3">
+                <option value="0">0</option>
+                <option value="0.333">1/3</option>
+                <option value="0.5">1/2</option>
+                <option value="0.666">2/3</option>
+                <option value="1">1</option>
+                </select>
+                <select id="dil_sual4">
+                    <option value="0">0</option>
+                    <option value="0.333">1/3</option>
+                    <option value="0.5">1/2</option>
+                    <option value="0.666">2/3</option>
+                    <option value="1">1</option>
+                    </select>
+    </div>
+
+
+
+
+    <div>
+        <h2>Riyaziyyat</h2>
+        <label for="riyaziyyat_qapali">Qapalı Suallar (15 tapşırıq): </label>
+        <input type="number" id="riyaziyyat_qapali" min="0" max="15"><br>
+        <label for="riyaziyyat_kod">Kodlaşdırıla Bilən Suallar (6 tapşırıq): </label>
+        <input type="number" id="riyaziyyat_kod" min="0" max="6"><br>
+        <label for="riyaziyyat_yazili">Həlli Tələb Olunan Suallar (4 tapşırıq): </label>
+        <select id="riyaziyyat_sual1">
+            <option value="0">0</option>
+            <option value="0.333">1/3</option>
+            <option value="0.5">1/2</option>
+            <option value="0.666">2/3</option>
+            <option value="1">1</option>
+            </select>
+            <select id="riyaziyyat_sual2">
+              <option value="0">0</option>
+              <option value="0.333">1/3</option>
+              <option value="0.5">1/2</option>
+              <option value="0.666">2/3</option>
+              <option value="1">1</option>
+              </select>
+              <select id="riyaziyyat_sual3">
+                  <option value="0">0</option>
+                  <option value="0.333">1/3</option>
+                  <option value="0.5">1/2</option>
+                  <option value="0.666">2/3</option>
+                  <option value="1">1</option>
+                  </select>
+                  <select id="riyaziyyat_sual4">
+                      <option value="0">0</option>
+                      <option value="0.333">1/3</option>
+                      <option value="0.5">1/2</option>
+                      <option value="0.666">2/3</option>
+                      <option value="1">1</option>
+                      </select>
+        
+   
+    </div>
+
+
+    <div>
+        <h2>Xarici Dil</h2>
+        <label for="xarici_qapali">Qapalı Suallar (22 tapşırıq): </label>
+        <input type="number" id="xarici_qapali" min="0" max="22+6"><br>
+        <label for="xarici_dogru">Doğru/Cavab Sualı (1 tapşırıq): </label>
+        <select id="xarici_dogru">
+            <option value="0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+        </select><br>
+        <label for="xarici_esse">Esse Yazı (1 tapşırıq): </label>
+        <select id="xarici_esse">
+            <option value="0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5">5</option>
+        </select><br>
+        <label for="xarici_kod">Kodlaşdırıla Bilən Suallar (2 tapşırıq): </label>
+        <input type="number" id="xarici_kod" min="0" max="2"><br>
+    </div>
+
+    <button onclick="hesabla()">Hesabla</button>
+
+    <h4>Tədris Dili: <span id="TedrisDili">0</span></h4>
+    <h4>Riyaziyyat: <span id="Riyaziyyat">0</span></h4>
+    <h4>Xarici Dil: <span id="XariciDil">0</span></h4>
+    <h2> Ümumi bal: <span id="result">0</span></h2> 
+    
+
+    <script>
+
+        function hesabla() {
+
+
+            let dil_qapali = parseInt(document.getElementById("dil_qapali").value) || 0;
+            
+            let dil_yazili = 0;
+            for (let i = 1; i <= 4; i++) {
+                dil_yazili += parseFloat(document.getElementById(`dil_sual${i}`).value);
+            }
+          
+
+            let riyaziyyat_qapali = parseInt(document.getElementById("riyaziyyat_qapali").value) || 0;
+            let riyaziyyat_kod = parseInt(document.getElementById("riyaziyyat_kod").value) || 0;
+            let riyaziyyat_yazili = 0;
+            for (let i = 1; i <= 4; i++) {
+                riyaziyyat_yazili += parseFloat(document.getElementById(`riyaziyyat_sual${i}`).value);
+            }
+
+            let xarici_dogru = parseFloat(document.getElementById("xarici_dogru").value) || 0;
+            let xarici_esse = parseFloat(document.getElementById("xarici_esse").value) || 0;
+            let xarici_qapali = parseInt(document.getElementById("xarici_qapali").value) || 0;
+            let xarici_kod = parseInt(document.getElementById("xarici_kod").value) || 0;
+
+            let dil_ballari = (((dil_yazili * 2) + (dil_qapali * 1)) / 34) * 100;
+            let riyaziyyat_ballari = (((riyaziyyat_yazili * 2) + (riyaziyyat_qapali * 1) + (riyaziyyat_kod * 1)) / 29) * 100;
+            let xarici_dil_ballari = (((xarici_dogru * 1) + (xarici_esse * 1) + (xarici_qapali * 1) + (xarici_kod * 1)) / 30) * 100;
+
+            let umumi_bal = dil_ballari + riyaziyyat_ballari + xarici_dil_ballari;
+
+            // 0.1-ə qədər yuvarlama
+            umumi_bal = umumi_bal.toFixed(1);
+            dil_ballari = dil_ballari.toFixed(1);
+            riyaziyyat_ballari = riyaziyyat_ballari.toFixed(1);
+            xarici_dil_ballari = xarici_dil_ballari.toFixed(1);
+
+            document.getElementById("result").innerText =  umumi_bal;
+            document.getElementById("TedrisDili").innerText =  dil_ballari;
+            document.getElementById("Riyaziyyat").innerText =  riyaziyyat_ballari;
+            document.getElementById("XariciDil").innerText =  xarici_dil_ballari;
+        }
+    </script>
+</body>
+</html>
